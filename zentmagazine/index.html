@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>ZentZent Magazine</title>
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+	<style>
+		/* EMBEDED CSS FOR THE WIN */
+		body {
+			margin: 0;
+    		padding: 0;
+			width: 100vw;
+			height: 100vh;
+			max-width: 100vw;
+			max-height: 100vh;
+			min-width: 100vw;
+			min-height: 100vh;
+			overflow: hidden;
+			background-color: white;
+			background-image: url("bg.jpg");
+			background-position: center top;
+			background-size: cover;
+			font-family: 'Rubik', sans-serif;
+		}
+		main {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: nowrap;
+			    flex-wrap: nowrap;
+		    -ms-flex-align: center;
+		        align-items: center;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+			position: fixed;
+			top: 50%;
+			left: 30px;
+			transform: translateY(-50%);
+		}
+		#logo {
+			display: block;
+			margin-right: 30px;
+		}
+		#logo img {
+			width: auto;
+			height: 200px;
+			box-shadow: 0px 1px 2px black;
+		}
+		article h1 {
+			color: white;
+			font-size: 34px;
+			text-shadow: 0px 1px 2px black;
+		}
+		article p a {
+	        border-radius: 20px;
+		    color: white;
+		    background-color: rgba(158, 19, 19, 0.4);
+		    padding: 14px 30px;
+		    text-decoration: none;
+		    text-shadow: 0px 1px 2px black;
+		    transition: 0.2s all ease-in-out;
+		    display: block;
+		    text-align: center;
+		    cursor: pointer;
+		}
+		article p a:hover {
+			box-shadow: 0px 0px 3px 0px black;
+		    transform: scale(1.05);
+		    background-color: rgba(158, 19, 19, 0.8);
+		}
+
+		@media screen and (max-width: 768px) {
+			body {
+				background-image: url('bg_mobile.jpg');
+			}
+			main {
+				-ms-flex-wrap: wrap;
+				    flex-wrap: wrap;
+			    width: 100%;
+			    left: 0;
+			    text-align: center;
+			}
+			#logo {
+			    width: 100%;
+    			margin: 0 auto;
+			}
+			article {
+				display: block;
+			    width: 100%;
+			    box-sizing: border-box;
+			    padding: 0 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div id="logo">
+			<a href="http://homullus.com">
+				<img src="logo_200.png" alt="Homullus Logo" srcset="logo_200.png 1x, logo.png 2x">
+			</a>
+		</div>
+		<article>
+			<h1>Zent Magazine</h1>
+			<p class="url">
+				<a href="http://www.zentmagazine.com/" target="_blank">Visit Website</a>
+			</p>
+		</article>
+	</main>
+</body>
+</html>

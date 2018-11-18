@@ -1,0 +1,52 @@
+header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .logo {
+    padding: 0 20px;
+
+    h1 {
+      color: $black;
+      font-size: 310px;
+      letter-spacing: -10px;
+      font-weight: 600;
+      margin: 0 auto;
+      line-height: 330px;
+    }
+  }
+  .details {
+    width: 400px;
+    margin-top: 100px;
+
+    p.name {
+      font-weight: 600;
+      color: $black;
+      font-size: 24px;
+      margin: 0 0 30px 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 1px;
+        letter-spacing: 1px;
+
+        span {
+          font-weight: 600;
+          color: $black;
+          padding-right: 6px;
+          letter-spacing: 0;
+        }
+        a {
+          text-decoration: none;
+          color: $gray;
+        }
+      }
+    }
+  }
+}

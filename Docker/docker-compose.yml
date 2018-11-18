@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    container_name: homullus_nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+      target: ${ENV}
+    restart: always
+    command: [nginx-debug, '-g', 'daemon off;']
+    volumes:
+      - ./../public/:/usr/share/nginx/html:delegated
+    ports:
+      - ${LISTEN_PORT}:443
+    networks:
+      - homullus
+
+  node:
+    container_name: homullus_node
+    build:
+      context: ./node
+      dockerfile: Dockerfile
+      target: ${ENV}
+    volumes:
+      - ./../:/home/node/app
+    working_dir: /home/node/app
+    entrypoint: /home/node/entrypoint.sh
+    environment:
+      - NODE_ENV=${ENV}
+    depends_on:
+      - nginx
+    networks:
+      - homullus
+
+networks:
+  homullus:
+    driver: bridge

@@ -1,5 +1,5 @@
 const test = {
-    message: 'This is just a test case.',
+    message: 'Batman!',
     init() {
         console.log(this.message);
     }

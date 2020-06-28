@@ -1,3 +1,6 @@
+.env
+
+# Certificates
+nginx/ssl
+build
 node_modules
-public/style.css
-public/app.js

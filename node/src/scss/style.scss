@@ -1,0 +1,9 @@
+// Variables
+$black: black;
+$gray: #797979;
+$white: whitesmoke;
+
+// Various Parent Fixes
+@import "scss/_Partials/global";
+@import "scss/_Partials/header";
+@import "scss/_Partials/main";

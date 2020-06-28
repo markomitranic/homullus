@@ -1,4 +1,0 @@
-.env
-
-# Certificates
-nginx/ssl/*

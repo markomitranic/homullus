@@ -1,8 +1,10 @@
-const webpack = require('webpack'),
+const prod = process.env.NODE_ENV === 'production',
+  webpack = require('webpack'),
   path = require('path'),
   ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  mode: prod ? 'production' : 'development',
   entry: {
     app: [
       './scripts/app.js',
@@ -10,7 +12,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, './public/'),
+    path: path.resolve(__dirname, './build/'),
     filename: '[name].js'
   },
   module: {
@@ -32,11 +34,15 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('./style.css'),
     new webpack.LoaderOptionsPlugin({
-      minimize: false,
-      debug: true,
+      minimize: prod,
+      debug: !prod,
       options: {
         context: __dirname
       }
     })
-  ]
+  ],
+  watchOptions: {
+    aggregateTimeout: 2000,
+    poll: 2000
+  }
 };

@@ -45,10 +45,12 @@ main#sections {
       }
 
       header {
-        margin-bottom: 20px;
+        margin: 20px auto;
 
         h2 {
           font-size: 37px;
+          line-height: 42px;
+          letter-spacing: -0.7px;
           color: $black;
           margin: 0 0 10px 0;
         }
@@ -62,12 +64,17 @@ main#sections {
           margin-bottom: 20px;
 
           p {
-            margin: 0;
+            letter-spacing: -0.5px;
+            padding: 0 10px 0 0;
 
             &.title {
               font-weight: 600;
               color: $black;
-              margin-bottom: 5px;
+              margin-bottom: 2px;
+
+              & + p {
+                margin-top: 2px;
+              }
             }
           }
         }

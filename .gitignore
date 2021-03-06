@@ -1,6 +1,3 @@
 .env
-
-# Certificates
-nginx/ssl
-build
-node_modules
+src/build
+src/node_modules

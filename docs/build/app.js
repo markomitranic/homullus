@@ -1,0 +1,1 @@
+(()=>{"use strict";(new class{constructor(){this.message="Batman!"}init(){console.log(this.message)}}).init()})();

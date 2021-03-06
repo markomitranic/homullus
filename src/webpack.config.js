@@ -1,29 +1,27 @@
 const prod = process.env.NODE_ENV === 'production',
   webpack = require('webpack'),
   path = require('path'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  CopyPlugin = require("copy-webpack-plugin");
+  MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: prod ? 'production' : 'development',
   entry: {
-    app: [
-      './scripts/app.js',
-      './scss/style.scss'
-    ]
+    app: './scripts/app.js',
   },
   output: {
-    path: path.resolve(__dirname, './build/'),
+    path: path.resolve('/app/src/build'),
     filename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader'],
-          fallback: 'style-loader'
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.js$/,
@@ -32,23 +30,23 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    compress: true,
+    // hot: true,
+    // inline: true,
+    port: 8080,
+    host: '0.0.0.0',
+    overlay: true,
+    publicPath: '/build/',
+  },
   plugins: [
-    new ExtractTextPlugin('./style.css'),
+    new MiniCssExtractPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: prod,
       debug: !prod,
       options: {
         context: __dirname
       }
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: "/app/src/build", to: "/app/deployment/build" },
-      ],
-    }),
+    })
   ],
-  watchOptions: {
-    aggregateTimeout: 2000,
-    poll: 2000
-  }
 };

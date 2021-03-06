@@ -2,28 +2,20 @@
 
 Just a simple HTML based CV. Way easier to manage/update than the old Photoshop one.
 
+Start the application as seen in `./deploy_dev.sh`.
+
 ## Production Deployment
 
-`./deploy_prod.sh` thats it.
+Start a production build: `docker exec -ti homullus_node /app/scripts/build-release.sh`.
 
-> This step assumes that you have already provided SSL certificates at `./nginx/ssl/cert.cer` and `./nginx/ssl/cert.key`.
-
-## CI, no ci at the moment, sorry
+The script will build the dist, and place it in the `/docs/` directory which is used for GitHub Pages.
 
 ## Local development
 
-Start the application as seen in `./deploy_dev.sh`.
-
-> This step assumes that you have already provided SSL certificates at `./nginx/ssl/cert.cer` and `./nginx/ssl/cert.key`.
-
-Application hosted by nginx container should be available at the port you have chosen (default `443`).
-
-### Node build & watch
-
-You can now run commands against the waiting node container:
+You would usually just start a webpack server if needed:
 ```
 docker exec -ti homullus_node yarn install
-docker exec -ti homullus_node yarn watch
+docker exec -ti homullus_node yarn run watch
 ```
 
 ### VSCode IntelliSense

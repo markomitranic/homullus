@@ -1,7 +1,8 @@
 const prod = process.env.NODE_ENV === 'production',
   webpack = require('webpack'),
   path = require('path'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin');
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: prod ? 'production' : 'development',
@@ -39,7 +40,12 @@ module.exports = {
       options: {
         context: __dirname
       }
-    })
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "/app/src/build", to: "/app/deployment/build" },
+      ],
+    }),
   ],
   watchOptions: {
     aggregateTimeout: 2000,

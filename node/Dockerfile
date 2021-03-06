@@ -5,8 +5,7 @@ WORKDIR /home/node/app/
 
 FROM base AS dev
 ENV NODE_ENV=development
-COPY entrypoint-dev.sh /home/node/entrypoint.sh
-ENTRYPOINT ["../entrypoint.sh"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 FROM base AS prod
 COPY src /home/node/app/

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -a
-[ -f .env ] && . ./.env.dist
+[ -f .env.dist ] && . ./.env.dist
 [ -f .env ] && . ./.env
 set +a
 
